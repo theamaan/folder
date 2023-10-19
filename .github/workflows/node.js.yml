@@ -1,0 +1,25 @@
+name: Node.js Deployment
+
+on:
+  push:
+    branches:
+      - main  # Adjust the branch name if necessary
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check Out Code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 18 
+
+    - name: Install Dependencies
+      run: npm install  # Ensure you have a package.json file
+
+    - name: Run Hello World
+      run: node app.js
